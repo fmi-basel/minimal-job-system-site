@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'hgyoe+y399@v!lokvl+!%d3&ucdt6caewl&e5uf(=z9gz3ir_p')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'hgyoe+y399@v!adovl+!%d3&ucdt6caewl&e5uf(=z9gz3ir_p')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', False))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'vcl1048.fmi.ch', ]
 
 
 # Application definition
@@ -96,11 +96,11 @@ WSGI_APPLICATION = 'job_system_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'jobsystem',
-        'USER': 'postgres',
+        'NAME': 'js_grosshans',
+        'USER': 'js_grosshans',
         'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '5433',
+        'HOST': '/run/postgresql/',
+        'PORT': '5432',
     }
 }
 
@@ -155,7 +155,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/django-static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
