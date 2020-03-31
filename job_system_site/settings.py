@@ -134,7 +134,8 @@ CONSTANCE_CONFIG = {
     ),
     'JOB_SYSTEM_ICON': (
         'job_system_frontend/img/default.ico', 'Icon of the Job System application'
-    )
+    ),
+    'ONLY_OWNER_CAN_STOP_JOB': (True, 'Users can only stop their own jobs.', bool)
 }
 
 
@@ -160,7 +161,7 @@ STATIC_URL = '/django-static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
+#    os.path.join(BASE_DIR, 'static'),
 )
 
 # Default login page
