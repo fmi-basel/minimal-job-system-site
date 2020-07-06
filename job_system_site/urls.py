@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^login/', auth_views.login,{'template_name': 'core/login.html'}, name='login'),
     url(r'^logout/', auth_views.logout, {'template_name': 'core/logout.html', 'next_page': '/login'}, name='logout'),
+    url(r'^change-password/', auth_views.PasswordChangeView.as_view(success_url='/frontend'), name='change_password'),
     # url(r'^admin/', ExtendedAdminSite.get_urls),
     url(r'^$', lambda r: HttpResponseRedirect('frontend/')),
     url(r'^api/', include('job_system_api.urls')),
